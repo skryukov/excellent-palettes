@@ -12,7 +12,22 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+
+    <header class="bg-gray-800 text-white p-4">
+      <nav class="container mx-auto flex justify-between">
+        <a href="/" class="font-bold text-2xl">Excel-lent Palettes: Color Schemes from Your Nightmares</a>
+        <div class="flex gap-4">
+        <% if current_user.present? %>
+          <a href="/palettes/new" class="font-bold hover:underline">New Palette</a>
+          <a href="/users/sign_out" data-method="delete" class="font-bold hover:underline">Sign Out</a>
+        <% else %>
+          <a href="/users/sign_in" class="font-bold hover:underline">Sign In</a>
+        <% end %>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mx-auto mt-5 px-5 flex">
       <%= yield %>
     </main>
   </body>

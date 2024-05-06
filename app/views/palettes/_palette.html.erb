@@ -1,0 +1,22 @@
+<div id="<%= dom_id palette %>" class="w-48">
+  <div class="mb-5 block rounded-xl overflow-hidden relative">
+    <% palette.colors.each_with_index do |color, i| %>
+    <div
+      style="background-color: <%= color %>"
+      class="w-48 <%= i.zero? ? "h-16" : "h-8" %> block"
+    >
+      <div class="opacity-0 hover:opacity-100 relative w-full h-full">
+        <div class="text-xs absolute bottom-0 left-0 bg-gray-700/50 text-white p-1 rounded-tr">
+          <%= color %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <p>
+      <span class="text-xs text-gray-700 float-right">
+       by @<%= palette.user.username %>
+      </span>
+    <%= link_to(palette.name, palette, class:"block font-medium") %>
+  </p>
+</div>
