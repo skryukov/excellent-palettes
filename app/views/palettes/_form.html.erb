@@ -1,31 +1,31 @@
-<%= form_with(model: palette, class: "contents") do |form| %>
+<%= form_with(model: palette, class: "contents bg-gradient-to-br from-yellow-200 via-pink-500 to-purple-400 p-5 border-4 border-dotted border-black") do |form| %>
   <% if palette.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(palette.errors.count, "error") %> prohibited this palette from being saved:</h2>
+      <h2 style="font-family: 'Comic Sans MS', cursive, sans-serif; color: blue;"><%= pluralize(palette.errors.count, "error") %> prohibited this palette from being saved:</h2>
 
       <ul>
         <% palette.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li style="color: green;"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :name, style: "font-family: 'Comic Sans MS', cursive, sans-serif; color: magenta;" %>
+    <%= form.text_field :name, class: "block shadow appearance-none border rounded-md border-red-500 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :colors %>
-    <div class="rounded-wd overflow-hidden relative border border-gray-400 w-48">
+    <%= form.label :colors, style: "font-family: 'Comic Sans MS', cursive, sans-serif; color: orange;" %>
+    <div class="rounded-md overflow-hidden relative border border-orange-500 w-48">
       <% 5.times do |i| %>
-        <%= form.text_field :colors, name: "palette[colors][]", value: palette.colors[i] || '#ffffff', type: :color, class: "block border-b border-gray-400 outline-none w-full" %>
+        <%= form.text_field :colors, name: "palette[colors][]", value: palette.colors[i] || '#ffffff', type: :color, class: "block border-b border-orange-300 outline-none w-full" %>
       <% end %>
     </div>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit "Save Palette", class: "rounded-lg py-3 px-5 bg-green-500 hover:bg-green-700 text-white inline-block font-medium cursor-pointer", style: "border: 2px dashed yellow; font-family: 'Comic Sans MS', cursive, sans-serif;" %>
   </div>
 <% end %>

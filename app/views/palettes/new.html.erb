@@ -1,7 +1,7 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New palette</h1>
+<div class="mx-auto md:w-2/3 w-full p-5 border-4 border-dotted border-black">
+  <h1 class="font-bold text-4xl text-red-600" style="text-shadow: 2px 2px 2px #0000FF;">New palette</h1>
 
   <%= render "form", palette: @palette %>
 
-  <%= link_to "Back to palettes", palettes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Back to palettes", palettes_path, class: "ml-2 rounded-lg py-3 px-5 bg-purple-500 inline-block font-medium text-white hover:bg-purple-700 hover:text-yellow-300", style: "border: 3px dashed yellow; font-family: 'Comic Sans MS', cursive, sans-serif;" %>
 </div>

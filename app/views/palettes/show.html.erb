@@ -1,19 +1,23 @@
 <div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
+  <div class="w-full flex flex-col gap-4">
     <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+      <p class="py-2 px-3 bg-lime-200 mb-5 text-pink-700 font-comic-sans text-xl border-4 border border-pink-700 text-center" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= render @palette %>
+    <nav class="text-sm font-medium text-purple-500 mb-5" style="font-family: 'Comic Sans MS', cursive, sans-serif;">
+      <a href="<%= palettes_path %>" class="hover:text-purple-800">Palettes</a> &gt;
+      <span class="text-yellow-300"><%= @palette.name %></span>
+    </nav>
 
-    <% if @palette.user == current_user %>
-    <%= link_to "Edit this palette", edit_palette_path(@palette), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <% end %>
-    <%= link_to "Back to palettes", palettes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <% if @palette.user == current_user %>
-      <div class="inline-block ml-2">
-      <%= button_to "Destroy this palette", @palette, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    <div class="flex gap-8 justify-center">
+      <%= render @palette %>
+
+      <div class="flex flex-col gap-4">
+        <% if @palette.user == current_user %>
+          <%= link_to "Edit this palette", edit_palette_path(@palette), class: "rounded-lg py-3 px-5 bg-blue-400 inline-block font-medium text-white hover:bg-blue-600 hover:text-yellow-300", style: "border: 3px dashed red; font-family: 'Comic Sans MS', cursive, sans-serif;" %>
+          <%= button_to "Destroy this palette", @palette, method: :delete, class: "rounded-lg py-3 px-5 bg-red-500 inline-block font-medium text-white hover:bg-red-700 hover:text-green-300", style: "border: 3px dashed yellow; font-family: 'Comic Sans MS', cursive, sans-serif;" %>
+        <% end %>
+      </div>
     </div>
-    <% end %>
   </div>
 </div>

@@ -1,22 +1,22 @@
 <div id="<%= dom_id palette %>" class="w-48">
-  <div class="mb-5 block rounded-xl overflow-hidden relative">
+  <div class="mb-5 block rounded-xl overflow-hidden relative shadow-xl border-4 border-dotted border-pink-600 bg-yellow-100">
     <% palette.colors.each_with_index do |color, i| %>
-    <div
-      style="background-color: <%= color %>"
-      class="w-48 <%= i.zero? ? "h-16" : "h-8" %> block"
-    >
-      <div class="opacity-0 hover:opacity-100 relative w-full h-full">
-        <div class="text-xs absolute bottom-0 left-0 bg-gray-700/50 text-white p-1 rounded-tr">
-          <%= color %>
+      <div
+        style="background-color: <%= color %>; animation: pulse 10s infinite alternate;"
+        class="w-48 <%= i.zero? ? "h-16" : "h-8" %> block"
+      >
+        <div class="opacity-0 hover:opacity-100 relative w-full h-full transition duration-300 ease-in-out">
+          <div class="text-xs absolute bottom-0 left-0 bg-gray-700/75 text-white p-1 rounded-tr">
+            <%= color %>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
-  <p>
-      <span class="text-xs text-gray-700 float-right">
-       by @<%= palette.user.username %>
-      </span>
-    <%= link_to(palette.name, palette, class:"block font-medium") %>
+  <p class="bg-pink-200 p-2">
+    <span class="text-xs text-white float-right">
+      by @<%= palette.user.username %>
+    </span>
+    <%= link_to(palette.name, palette, class:"block font-medium text-lg text-red-700 underline") %>
   </p>
 </div>
