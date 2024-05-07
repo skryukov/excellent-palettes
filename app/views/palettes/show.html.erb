@@ -9,6 +9,11 @@
       <span class="text-yellow-300"><%= @palette.name %></span>
     </nav>
 
+
+    <%= turbo_mount("HelloReact", props: {name: 'Mounted React'}) %>
+    <%= turbo_mount("HelloSvelte", props: {name: 'Mounted Svelte'}) %>
+    <%= turbo_mount("HelloVue", props: {name: 'Mounted Vue'}) %>
+
     <div class="flex gap-8 justify-center">
       <%= render @palette %>
 
