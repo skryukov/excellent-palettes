@@ -14,6 +14,8 @@
  *= require_self
  */
 
+@import "https://cdn.skypack.dev/@fortune-sheet/react@0.19.5/dist/index.css";
+
 @keyframes header-animation {
     0% {
         transform: translate(0);

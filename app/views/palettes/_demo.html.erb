@@ -1,0 +1,41 @@
+<%-
+  data = [{
+            name: "Employee Time Allocation",
+            row: 6,
+            column: 6,
+            config: { columnlen: { "0": 105, "1": 145, "2": 135, "3": 175, "4": 175 } },
+            celldata: [
+              { r: 0, c: 0, v: { m: "Employee Name", bg: palette.colors[0], it: 1, un: 1, bl: 1, tb: 2 } },
+              { r: 0, c: 1, v: { m: "Time Spent in Meetings", bg: palette.colors[0], it: 1, un: 1, bl: 1, tb: 2 } },
+              { r: 0, c: 2, v: { m: "Time Spent on Emails", bg: palette.colors[0], it: 1, un: 1, bl: 1, tb: 2 } },
+              { r: 0, c: 3, v: { m: "Time Spent on Actual Work", bg: palette.colors[0], it: 1, un: 1, bl: 1, tb: 2 } },
+              { r: 0, c: 4, v: { m: "Time Spent on Coffee Breaks", bg: palette.colors[0], it: 1, un: 1, bl: 1, tb: 2 } },
+              { r: 1, c: 0, v: { m: "John Doe", fc: palette.colors[1], it: 1 } },
+              { r: 1, c: 1, v: { m: "25 hrs/week", bg: palette.colors[1] } },
+              { r: 1, c: 2, v: { m: "10 hrs/week", bg: palette.colors[2] } },
+              { r: 1, c: 3, v: { m: "5 hrs/week", bg: palette.colors[2] } },
+              { r: 1, c: 4, v: { m: "8 hrs/week", bg: palette.colors[4] } },
+              { r: 2, c: 0, v: { m: "Jane Smith", fc: palette.colors[1], it: 1 } },
+              { r: 2, c: 1, v: { m: "20 hrs/week", bg: palette.colors[2] } },
+              { r: 2, c: 2, v: { m: "15 hrs/week", bg: palette.colors[1] } },
+              { r: 2, c: 3, v: { m: "3 hrs/week", bg: palette.colors[1] } },
+              { r: 2, c: 4, v: { m: "10 hrs/week", bg: palette.colors[4] } },
+              { r: 3, c: 0, v: { m: "Bob Johnson", fc: palette.colors[1], it: 1 } },
+              { r: 3, c: 1, v: { m: "30 hrs/week", bg: palette.colors[3] } },
+              { r: 3, c: 2, v: { m: "5 hrs/week", bg: palette.colors[3] } },
+              { r: 3, c: 3, v: { m: "2 hrs/week", bg: palette.colors[3] } },
+              { r: 3, c: 4, v: { m: "6 hrs/week", bg: palette.colors[4] } },
+              { r: 4, c: 0, v: { m: "Sally Johnson", fc: palette.colors[1], it: 1 } },
+              { r: 4, c: 1, v: { m: "10 hrs/week", bg: palette.colors[4] } },
+              { r: 4, c: 2, v: { m: "20 hrs/week", bg: palette.colors[4] } },
+              { r: 4, c: 3, v: { m: "10 hrs/week", bg: palette.colors[4] } },
+              { r: 4, c: 4, v: { m: "5 hrs/week", bg: palette.colors[4] } },
+            ]
+          }]
+%>
+<%= turbo_frame_tag("demo") do %>
+  <div data-controller="workbook"
+       data-workbook-props-value="<%= { data: }.to_json %>"
+       class="w-full max-w-full overflow-hidden h-64 relative"
+  ></div>
+<% end %>
