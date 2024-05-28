@@ -27,3 +27,6 @@ pin "immer", to: "https://cdn.skypack.dev/immer@9.0.21"
 # pin "lodash" # @4.17.21
 # fixes isPlainObject import error:
 pin "lodash", to: "https://cdn.skypack.dev/lodash@4.17.21"
+pin "turbo-mount", to: "turbo-mount.min.js"
+pin "turbo-mount-initializer"
+pin "turbo-mount/react", to: "turbo-mount/react.min.js"

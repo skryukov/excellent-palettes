@@ -33,9 +33,5 @@
             ]
           }]
 %>
-<%= turbo_frame_tag("demo") do %>
-  <div data-controller="workbook"
-       data-workbook-props-value="<%= { data: }.to_json %>"
-       class="w-full max-w-full overflow-hidden h-64 relative"
-  ></div>
-<% end %>
+
+<%= turbo_mount("Workbook", props: {data:}, class: "w-full max-w-full overflow-hidden h-64 relative") %>
