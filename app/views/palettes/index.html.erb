@@ -4,8 +4,6 @@
   <% end %>
 
   <div id="palettes" class="my-8 min-w-full gap-8 flex flex-wrap">
-    <% @palettes.each do |palette| %>
-      <%= render palette %>
-    <% end %>
+    <%= render @palettes %>
   </div>
 </div>

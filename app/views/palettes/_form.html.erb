@@ -1,7 +1,8 @@
 <%= form_with(model: palette, class: "contents bg-gradient-to-br from-yellow-200 via-pink-500 to-purple-400 p-5 border-4 border-dotted border-black") do |form| %>
   <% if palette.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2 style="font-family: 'Comic Sans MS', cursive, sans-serif; color: blue;"><%= pluralize(palette.errors.count, "error") %> prohibited this palette from being saved:</h2>
+      <h2 style="font-family: 'Comic Sans MS', cursive, sans-serif; color: blue;"><%= pluralize(palette.errors.count, "error") %>
+        prohibited this palette from being saved:</h2>
 
       <ul>
         <% palette.errors.each do |error| %>
@@ -18,9 +19,16 @@
 
   <div class="my-5">
     <%= form.label :colors, style: "font-family: 'Comic Sans MS', cursive, sans-serif; color: orange;" %>
-    <div class="rounded-md overflow-hidden relative border border-orange-500 w-48">
-      <% 5.times do |i| %>
-        <%= form.text_field :colors, name: "palette[colors][]", value: palette.colors[i] || '#ffffff', type: :color, class: "block border-b border-orange-300 outline-none w-full" %>
+
+    <div>
+    <% 5.times do |i| %>
+        <div class="relative w-48 mb-2">
+          <%= turbo_mount("ColorPicker", props: { color: palette.colors[i] }) do |controller_name| %>
+            <div data-<%= controller_name %>-target="mount"></div>
+            <span class="absolute top-0 left-0 bg-gray-700/75 text-white p-1 rounded-tl-lg" style="font-family: 'Comic Sans MS', cursive, sans-serif; color: yellow;">Color <%= i + 1 %></span>
+            <%= form.hidden_field :colors, name: "palette[colors][]", value: palette.colors[i], data: { "#{controller_name}-target": "input" } %>
+        <% end %>
+        </div>
       <% end %>
     </div>
   </div>

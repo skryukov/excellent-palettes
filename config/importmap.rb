@@ -30,3 +30,4 @@ pin "lodash", to: "https://cdn.skypack.dev/lodash@4.17.21"
 pin "turbo-mount", to: "turbo-mount.min.js"
 pin "turbo-mount-initializer"
 pin "turbo-mount/react", to: "turbo-mount/react.min.js"
+pin "react-colorful" # @5.6.1
