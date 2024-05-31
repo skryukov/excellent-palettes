@@ -1,13 +1,50 @@
+@import "@fortune-sheet/react/dist/index.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+@keyframes header-animation {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(-5px, -5px);
+  }
+  60% {
+    transform: translate(5px, 5px);
+  }
+  80% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(0);
   }
 }
 
-*/
+.rainbow-hover:hover {
+  animation: rainbow 2s infinite;
+}
+@keyframes rainbow {
+  0% { background-color: red; }
+  17% { background-color: orange; }
+  34% { background-color: yellow; }
+  51% { background-color: green; }
+  68% { background-color: blue; }
+  85% { background-color: indigo; }
+  100% { background-color: violet; }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s infinite;
+}
+@keyframes glitch {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
