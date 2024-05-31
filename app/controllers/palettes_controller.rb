@@ -54,7 +54,7 @@ class PalettesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def palette_params
-      params.require(:palette).permit(:name, colors: [])
+      params.require(:palette).permit(:name).merge({colors: params[:palette][:colors]&.split(" ") || [] })
     end
 
     def authorize_owner

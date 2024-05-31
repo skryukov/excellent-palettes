@@ -1,14 +1,9 @@
 import { TurboMount } from "turbo-mount";
-import { registerComponent } from "turbo-mount/react";
-import { Workbook } from "@fortune-sheet/react";
-import { HexColorPicker } from "react-colorful";
-import ColorPickerController from "/controllers/color_picker_controller";
+import { registerComponents } from "turbo-mount/registerComponents/react";
 
 const turboMount = new TurboMount();
 
-// to register a component use:
-registerComponent(turboMount, "Workbook", Workbook);
-registerComponent(turboMount, "ColorPicker", HexColorPicker, ColorPickerController);
+const controllers = import.meta.glob("./**/*_controller.js", { eager: true });
+const components = import.meta.glob("/components/**/*.jsx", { eager: true });
 
-// to override the default controller use:
-// registerComponent(turboMount, "Hello", Hello, HelloController); // where HelloController is a Stimulus controller extended from TurboMountController
+registerComponents({ turboMount, components, controllers });

@@ -10,8 +10,8 @@ export default class extends TurboMountController {
     };
   }
 
-  onChange = (color) => {
-    this.setComponentProps({...this.componentProps, color });
-    this.inputTarget.value = color;
+  onChange = (colors) => {
+    this.setComponentProps({ ...this.componentProps, colors });
+    this.inputTarget.value = colors.join(" ");
   };
 }

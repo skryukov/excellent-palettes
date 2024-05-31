@@ -20,17 +20,10 @@
   <div class="my-5">
     <%= form.label :colors, style: "font-family: 'Comic Sans MS', cursive, sans-serif; color: orange;" %>
 
-    <div>
-    <% 5.times do |i| %>
-        <div class="relative w-48 mb-2">
-          <%= turbo_mount("ColorPicker", props: { color: palette.colors[i] }) do |controller_name| %>
-            <div data-<%= controller_name %>-target="mount"></div>
-            <span class="absolute top-0 left-0 bg-gray-700/75 text-white p-1 rounded-tl-lg" style="font-family: 'Comic Sans MS', cursive, sans-serif; color: yellow;">Color <%= i + 1 %></span>
-            <%= form.hidden_field :colors, name: "palette[colors][]", value: palette.colors[i], data: { "#{controller_name}-target": "input" } %>
-        <% end %>
-        </div>
-      <% end %>
-    </div>
+    <%= turbo_mount("ColorPicker", props: { colors: palette.colors }) do |controller_name| %>
+      <div data-<%= controller_name %>-target="mount"></div>
+      <%= form.hidden_field :colors, data: { "#{controller_name}-target": "input" } %>
+    <% end %>
   </div>
 
   <div class="inline">
