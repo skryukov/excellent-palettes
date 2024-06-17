@@ -2,6 +2,10 @@
 
 This repository demonstrates how to use [Turbo Mount](https://github.com/skryukov/turbo-mount) to wire up modern JavaScript components to a Hotwire application.
 
+For ESBuild integration, see the [esbuild branch](https://github.com/skryukov/excellent-palettes/tree/esbuild).
+
+For more information, see the Evil Martians blog post [The art of Turbo Mount: Hotwire meets modern JS frameworks](https://evilmartians.com/chronicles/the-art-of-turbo-mount-hotwire-meets-modern-js-frameworks).
+
 ## Installation
 
 1. Clone the repository
